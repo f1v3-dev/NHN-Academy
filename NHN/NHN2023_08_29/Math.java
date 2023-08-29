@@ -28,4 +28,5 @@ public class Math {
         System.out.println(multi(a, b));
         System.out.println(div(a, zero));
     }
+
 }
