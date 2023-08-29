@@ -31,5 +31,31 @@ public class Main {
         * ab
         * 주사위 눈(2)이 홀수 ? : false
         * */
+
+        // 도서관 생성
+        Library library = new Library(5);
+
+        // 책 추가
+        library.add("해리포터");
+        library.add("샬롯의 거미줄");
+        library.add("샬롯의 거미줄");
+
+        library.delete("스파이더맨");
+
+        library.find("샬롯의 거미줄");
+        library.find("해리포터");
+
+        library.findAll();
+
+        library.delete("샬롯의 거미줄");
+
+        library.add("Java 7");
+        library.add("Java 8");
+        library.add("Java 9");
+        library.add("Java 11");
+
+        library.findAll();
+
+        library.add("Java 19");
     }
 }
