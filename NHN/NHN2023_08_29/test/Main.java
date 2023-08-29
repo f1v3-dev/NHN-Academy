@@ -3,6 +3,7 @@ public class Main {
 
 
     public static void main(String[] args) {
+/*
         int random1 = (int) (Math.random() * 6) + 1;
         int random2 = (int) (Math.random() * 6) + 1;
 
@@ -23,6 +24,8 @@ public class Main {
         Dice dice = new Dice(random4);
 
         System.out.println("주사위 눈(" + random4 + ")이 홀수 ? : " + DiceCalculator.odd(dice));
+*/
+
 
         /*
         * 출력 결과
@@ -33,21 +36,38 @@ public class Main {
         * */
 
         // 도서관 생성
+        // 생성자 (size)
+        // 음수가 들어올 경우 예외 발생
+
+        try {
+            new Library(-1);
+        } catch (IllegalArgumentException exception) {
+            System.out.println(exception.getMessage());
+        }
+
         Library library = new Library(5);
 
-        // 책 추가
         library.add("해리포터");
         library.add("샬롯의 거미줄");
-        library.add("샬롯의 거미줄");
 
-        library.delete("스파이더맨");
+        try {
+            library.add("샬롯의 거미줄");
+        } catch (IllegalArgumentException exception) {
+            System.out.println(exception.getMessage());
+        }
+
+        library.delete("해리포터");
+
+        try {
+            library.delete("스파이더맨");
+        } catch (IllegalArgumentException exception) {
+            System.out.println(exception.getMessage());
+        }
 
         library.find("샬롯의 거미줄");
-        library.find("해리포터");
+        library.find("샬롯의 거미줄2");
 
         library.findAll();
-
-        library.delete("샬롯의 거미줄");
 
         library.add("Java 7");
         library.add("Java 8");
@@ -55,7 +75,10 @@ public class Main {
         library.add("Java 11");
 
         library.findAll();
-
-        library.add("Java 19");
+        try {
+            library.add("Java 19");
+        } catch (IllegalArgumentException exception) {
+            System.out.println(exception.getMessage());
+        }
     }
 }
