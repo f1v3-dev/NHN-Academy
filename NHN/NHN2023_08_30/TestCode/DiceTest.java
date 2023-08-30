@@ -3,6 +3,8 @@ package TestCode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class DiceTest {
 
@@ -24,6 +26,14 @@ public class DiceTest {
 
             Assertions.assertEquals(arr[i], dice.getNum());
         }
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {1, 2, 3, 4, 5, 6})
+    @DisplayName("Dice 객체 Param Test")
+    void diceParamTest(int number) {
+        Dice dice = new Dice(number);
+        Assertions.assertEquals(number, dice.getNum());
     }
 
     @Test

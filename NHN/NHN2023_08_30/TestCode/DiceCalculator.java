@@ -10,6 +10,8 @@ public class DiceCalculator {
     }
 
     public static String getIndexOf(String str, int index) {
+        // exception 처리 해보기 (str의 lenth가 6보다 넘어가거나 index가 음수인경우)
+
         return str.substring(0, index + 1);
     }
 

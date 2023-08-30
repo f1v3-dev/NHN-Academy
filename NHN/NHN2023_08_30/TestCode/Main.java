@@ -1,7 +1,5 @@
 package TestCode;
 
-import java.util.Random;
-
 /**
  * Main 클래스입니다.
  */
@@ -16,10 +14,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Random random = new Random();
-
-        int random1 = random.nextInt() * 6 + 1;
-        int random2 = random.nextInt() * 6 + 1;
+        int random1 = (int) (Math.random() * 6) + 1;
+        int random2 = (int) (Math.random() * 6) + 1;
 
         Dice first = new Dice(random1);
         Dice second = new Dice(random2);

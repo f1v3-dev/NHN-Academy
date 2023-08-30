@@ -31,3 +31,4 @@ replay_pid*
 out
 *.iml
 *.xml
+.idea/sonarlint
