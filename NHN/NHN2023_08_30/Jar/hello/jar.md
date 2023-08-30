@@ -36,7 +36,9 @@ unzip hello.jar
 ```
 - 다음과 같이 진행할 경우 `META-INF/MANIFEST.MF`에 다음과 같이 생성 되어 있는 것을 확인할 수 있음.
 ```shell
+seungjo@Seungjos-MacBook-Air META-INF % cat MANIFEST.MF 
+
 Manifest-Version: 1.0
-Created-By: 11.0.18 (Eclipse Adoptium)
+Created-By: 11.0.20 (Eclipse Adoptium)
 Main-Class: com.nhnacademy.hello.Main
 ```
