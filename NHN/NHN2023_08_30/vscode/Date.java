@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Date {
-    
+
     public static void main(String[] args) {
 
         /**
@@ -16,9 +16,9 @@ public class Date {
         int num = scanner.nextInt();
 
         int[] days = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-        
+
         for (int i = 0; i < days.length; i++) {
-            if (num > days[i]){
+            if (num > days[i]) {
                 num -= days[i];
             } else {
                 System.out.println((i + 1) + "월 " + num + "일");
