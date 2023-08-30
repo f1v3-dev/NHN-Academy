@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Demonstrate {
+public class Leafyear {
 
     public static boolean calcYear(int year) {
         if (year % 4 == 0) {
