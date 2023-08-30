@@ -41,7 +41,9 @@ public class Leafyear {
         //     System.out.println(year + "년은 평년입니다.");
         // }
 
-        boolean isLeaf = calcYear(year);
+        // boolean isLeaf = calcYear(year);
+
+        boolean isLeaf = (year % 4 == 0) && (year % 100 != 0 || year % 400 == 0);
         if (isLeaf) {
             System.out.println(year + "년은 윤년입니다.");
         } else {
