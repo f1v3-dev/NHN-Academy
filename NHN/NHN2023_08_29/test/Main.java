@@ -1,5 +1,7 @@
 package test;
 
+import java.util.Random;
+
 /**
  * Main 클래스입니다.
  */
@@ -12,9 +14,11 @@ public class Main {
      */
 
     public static void main(String[] args) {
-        /*
-        int random1 = (int) (Math.random() * 6) + 1;
-        int random2 = (int) (Math.random() * 6) + 1;
+
+        Random random = new Random();
+
+        int random1 = random.nextInt() * 6 + 1;
+        int random2 = random.nextInt() * 6 + 1;
 
         Dice first = new Dice(random1);
         Dice second = new Dice(random2);
@@ -26,14 +30,14 @@ public class Main {
         // 1 -> "ab"
         // 2 -> "abc"
         String str = "abcdefg";
-        int val = (int) (Math.random() * str.length());
+        int val = random.nextInt() * str.length();
         System.out.println(DiceCalculator.getIndexOf(str, val));
 
-        int random4 = (int) (Math.random() * 6) + 1;
+        int random4 = random.nextInt() * 6 + 1;
         Dice dice = new Dice(random4);
 
         System.out.println("주사위 눈(" + random4 + ")이 홀수 ? : " + DiceCalculator.odd(dice));
-        */
+
 
 
         /*
@@ -56,11 +60,13 @@ public class Main {
 
         test.Library library = new test.Library(5);
 
+        String title = "샬롯의 거미줄";
+
         library.add("해리포터");
-        library.add("샬롯의 거미줄");
+        library.add(title);
 
         try {
-            library.add("샬롯의 거미줄");
+            library.add(title);
         } catch (IllegalArgumentException exception) {
             System.out.println(exception.getMessage());
         }
@@ -73,7 +79,7 @@ public class Main {
             System.out.println(exception.getMessage());
         }
 
-        library.find("샬롯의 거미줄");
+        library.find(title);
         library.find("샬롯의 거미줄2");
 
         library.findAll();
