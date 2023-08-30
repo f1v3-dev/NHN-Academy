@@ -1,0 +1,9 @@
+
+0
+java:S1220""Move this file to a named package.
+E	java:S106"+Replace this use of System.out by a logger.( ŞÕšûÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(—á—îúÿÿÿÿ
+p
+java:S2234"UParameters to sub have the same names but not the same order as the method arguments.(—á—îúÿÿÿÿ
+@	java:S106"+Replace this use of System.out by a logger.(·˜±Ô
+E	java:S106"+Replace this use of System.out by a logger.(ô®»şÿÿÿÿ
