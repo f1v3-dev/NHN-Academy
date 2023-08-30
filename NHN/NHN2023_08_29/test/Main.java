@@ -40,12 +40,12 @@ public class Main {
         // 음수가 들어올 경우 예외 발생
 
         try {
-            new Library(-1);
+            new test.Library(-1);
         } catch (IllegalArgumentException exception) {
             System.out.println(exception.getMessage());
         }
 
-        Library library = new Library(5);
+        test.Library library = new test.Library(5);
 
         library.add("해리포터");
         library.add("샬롯의 거미줄");
