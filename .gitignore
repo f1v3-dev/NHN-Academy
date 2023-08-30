@@ -33,3 +33,6 @@ out
 *.xml
 .idea/sonarlint
 NHN/NHN2023_08_30/Jar/hello/.idea
+NHN/NHN2023_08_30/Jar/calculator
+NHN/NHN2023_08_30/TestCode/.idea/sonarlint
+NHN/NHN2023_08_30/TestCode/.idea
