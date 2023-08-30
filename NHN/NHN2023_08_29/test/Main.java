@@ -1,9 +1,18 @@
 package test;
+
+/**
+ * Main 클래스입니다.
+ */
 public class Main {
 
+    /**
+     * main 메서드 입니다.
+     *
+     * @param args input 인자
+     */
 
     public static void main(String[] args) {
-/*
+        /*
         int random1 = (int) (Math.random() * 6) + 1;
         int random2 = (int) (Math.random() * 6) + 1;
 
@@ -24,16 +33,16 @@ public class Main {
         Dice dice = new Dice(random4);
 
         System.out.println("주사위 눈(" + random4 + ")이 홀수 ? : " + DiceCalculator.odd(dice));
-*/
+        */
 
 
         /*
-        * 출력 결과
-        *
-        * 주사위 합 = 9
-        * ab
-        * 주사위 눈(2)이 홀수 ? : false
-        * */
+         * 출력 결과
+         *
+         * 주사위 합 = 9
+         * ab
+         * 주사위 눈(2)이 홀수 ? : false
+         * */
 
         // 도서관 생성
         // 생성자 (size)
