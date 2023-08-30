@@ -5,6 +5,14 @@ public class Library {
     private String[] list;
     private int count;
 
+    public int getLibrarySize() {
+        return list.length;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
     public Library(int size) {
         if (size <= 0) {
             throw new IllegalArgumentException("도서관 크기는 1보다 작은 값을 넣을 수 없습니다.");
@@ -35,7 +43,7 @@ public class Library {
     public void delete(String title) {
 
         if (count == 0) {
-            throw new IllegalArgumentException("책장이 비어있어서 삭제가 불가능합니다.");
+            throw new IllegalArgumentException("책장이 비어 있어서 삭제가 불가능합니다.");
         }
 
         for (int i = 0; i < list.length; i++) {
