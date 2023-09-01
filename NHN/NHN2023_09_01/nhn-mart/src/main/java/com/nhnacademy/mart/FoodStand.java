@@ -25,7 +25,7 @@ public class FoodStand {
             }
             index++;
         }
-        throw new IllegalArgumentException("존재하지 않는 상품입니다.");
+        throw new IllegalArgumentException("재고가 부족합니다.");
     }
 
 }

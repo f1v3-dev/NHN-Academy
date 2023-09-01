@@ -32,7 +32,7 @@ public class NhnMart {
         return foodStand;
     }
 
-    public int getCounter() {
-        return 20_000;
+    public Counter getCounter() {
+        return new Counter();
     }
 }
