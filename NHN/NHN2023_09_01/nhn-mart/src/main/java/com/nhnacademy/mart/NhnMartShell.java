@@ -24,17 +24,21 @@ public class NhnMartShell {
         seungJo.pickFoods(mart.getFoodStand());
 
         // 카운터에서 계산한다.
+        // basket에 담긴 값들을 다 가져오기
         seungJo.payTox(mart.getCounter());
     }
 
     private static BuyList inputBuyListFromShell() {
+
         // TODO Scanner 입력을 받아 buyList 만들기
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("NHN 마트에 오신 것을 환영합니다. 사고 싶은 물건을 골라주세요. \n");
+        System.out.println("NHN 마트에 오신 것을 환영합니다. 사고 싶은 물건을 골라주세요. \n ");
+        System.out.print("> ");
 
         BuyList buyList = new BuyList();
 
+        // (양파 2) (계란 2) (파 4)
         StringTokenizer st = new StringTokenizer(sc.nextLine(), " ");
         while (st.hasMoreTokens()) {
             String name = st.nextToken();

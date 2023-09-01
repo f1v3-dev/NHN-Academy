@@ -11,6 +11,9 @@ public class BuyList {
         items.add(item);
     }
 
+    public ArrayList<Item> getItems() {
+        return items;
+    }
 
     public static class Item {
         private final String name;
@@ -21,5 +24,12 @@ public class BuyList {
             this.amount = amount;
         }
 
+        public String getName() {
+            return name;
+        }
+
+        public int getAmount() {
+            return amount;
+        }
     }
 }
