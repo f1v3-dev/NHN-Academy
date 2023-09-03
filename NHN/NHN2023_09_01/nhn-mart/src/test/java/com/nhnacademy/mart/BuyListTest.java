@@ -1,8 +1,5 @@
 package com.nhnacademy.mart;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.util.ArrayList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -23,7 +20,7 @@ class BuyListTest {
 
     @Test
     @DisplayName("[BuyList - Item] itemConstructorTest")
-    void itemConstructorTest(){
+    void itemConstructorTest() {
 
         BuyList.Item item = new BuyList.Item("사과", 3);
 

@@ -15,8 +15,18 @@ class CounterTest {
         int customerMoney = 10000;
         int total = 5000;
 
-        Assertions.assertEquals(5000 ,counter.pay(customerMoney, total));
+        Assertions.assertEquals(5000, counter.pay(customerMoney, total));
 
+    }
+
+    @Test
+    @DisplayName("[Counter] 가진 돈을 초과하는 경우 테스트")
+    void overpayTest() {
+        Counter counter = new Counter();
+        int customerMoney = 10_000;
+        int total = 20_000;
+
+        assertThrows(IllegalArgumentException.class, () -> counter.pay(customerMoney, total));
     }
 
 }

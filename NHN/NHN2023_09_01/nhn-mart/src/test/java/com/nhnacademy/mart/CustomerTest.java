@@ -1,7 +1,5 @@
 package com.nhnacademy.mart;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.ArrayList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -55,7 +53,7 @@ class CustomerTest {
 
     @Test
     @DisplayName("[Customer] payToxTest")
-    void payToxTest(){
+    void payToxTest() {
 
         Food food = new Food("사과", 1000);
         Customer customer = new Customer(new BuyList());

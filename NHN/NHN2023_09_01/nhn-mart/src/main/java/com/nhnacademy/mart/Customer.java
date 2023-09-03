@@ -2,6 +2,9 @@ package com.nhnacademy.mart;
 
 import java.util.ArrayList;
 
+/**
+ * Customer Class.
+ */
 public class Customer {
 
     // 고객 구매 목록
@@ -30,11 +33,18 @@ public class Customer {
         return basket;
     }
 
+    public void setCustomerMoney(int customerMoney) {
+        this.customerMoney = customerMoney;
+    }
+
     // 장바구니 챙기기
     public void bring(Basket basket) {
         this.basket = basket;
     }
-    // TODO pickFoods 메서드 구현
+
+    /**
+     * 고객의 바구니에 넣고 상품을 지우는 방식을 사용.
+     */
     public void pickFoods(FoodStand foodStand) {
         ArrayList<BuyList.Item> items = buyList.getItems();
         for (BuyList.Item item : items) {
@@ -44,22 +54,20 @@ public class Customer {
         }
     }
 
-    // TODO payTox 메서드 구현
-    public void payTox(Counter counter) {
+    /**
+     * 1. Basket에 있는 모든 품목들의 가격을 더해 총 액을 구한다.
+     * 2. Cusotmer가 가지고 있는 금액과 총 액을 counter.pay()에 넘긴다.
+     * 3. 반환된 값은 Customer의 customerMoney의 값으로 변경한다.
+     */
 
+    public void payTox(Counter counter) {
         ArrayList<Food> foods = basket.getFoods();
 
         int total = 0;
         for (Food food : foods) {
             total += food.getPrice();
         }
+        setCustomerMoney(counter.pay(getCustomerMoney(), total));
 
-        int change = counter.pay(getCustomerMoney(), total);
-        if (change < 0) {
-            throw new IllegalArgumentException("고객님이 가진 돈을 초과하는 상품을 구매할 수 없습니다.");
-        }
-
-        System.out.println("총 가격은 " + total + "원 입니다.");
-        System.out.println("고객님 결제 후 잔액 : " + change);
     }
 }

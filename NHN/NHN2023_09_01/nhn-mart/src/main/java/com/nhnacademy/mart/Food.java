@@ -1,5 +1,8 @@
 package com.nhnacademy.mart;
 
+/**
+ * Food Class.
+ */
 public class Food {
 
     private final String name;

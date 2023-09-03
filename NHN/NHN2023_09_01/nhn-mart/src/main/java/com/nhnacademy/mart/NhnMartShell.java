@@ -5,9 +5,15 @@ import java.util.StringTokenizer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * NHN Mart를 시작하는 클래스.
+ */
 public class NhnMartShell {
     private static final Logger log = LoggerFactory.getLogger(NhnMartShell.class);
 
+    /**
+     * NHN Mart의 main Method.
+     */
     public static void main(String[] args) {
         NhnMart mart = new NhnMart();
         mart.prepareMart();
@@ -15,10 +21,7 @@ public class NhnMartShell {
         BuyList buyList = inputBuyListFromShell();
         log.info("총 {}개의 항목이 추가되었습니다.", buyList.getItems().size());
 
-        // TODO 본인이름 영어로 변수명 작성!
         // 본인이름을 각자 맞게 영어로 변경
-        // 홍길동 학생
-        // -> hongGilDong or gilDong
         log.info("새로운 Customer 객체를 생성합니다.");
         Customer seungJo = new Customer(buyList);
 
@@ -37,7 +40,6 @@ public class NhnMartShell {
 
     private static BuyList inputBuyListFromShell() {
 
-        // TODO Scanner 입력을 받아 buyList 만들기
         Scanner sc = new Scanner(System.in);
 
         System.out.println("NHN 마트에 오신 것을 환영합니다. 사고 싶은 물건을 골라주세요. \n ");

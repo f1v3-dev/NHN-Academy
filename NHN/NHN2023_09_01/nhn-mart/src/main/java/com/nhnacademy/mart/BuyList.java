@@ -4,13 +4,15 @@ import java.util.ArrayList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * BuyList Class.
+ */
 public class BuyList {
 
     private static final Logger log = LoggerFactory.getLogger(BuyList.class);
 
     private final ArrayList<Item> items = new ArrayList<>();
 
-    // TODO add 메서드 생성
     public void add(Item item) {
         items.add(item);
     }
@@ -19,10 +21,16 @@ public class BuyList {
         return items;
     }
 
+    /**
+     * Item Class.
+     */
     public static class Item {
         private final String name;
         private final int amount;
 
+        /**
+         * Item Class Constructor.
+         */
         public Item(String name, int amount) {
             if (name.isEmpty()) {
                 log.warn("이름은 공백이 될 수 없습니다.");
