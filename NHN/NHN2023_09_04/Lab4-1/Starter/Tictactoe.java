@@ -1,10 +1,14 @@
 import java.util.Scanner;
 
 public class Tictactoe {
-    
-    static int count = 0;
 
-    static char[][] map = new char[3][3];
+    private static final int MAP_SIZE = 3;
+
+    private static int count = 0;
+
+    private static char[][] map = new char[MAP_SIZE][MAP_SIZE];
+
+    private static Scanner scanner = new Scanner(System.in);
 
     static void printMap() {
         for (int i = 0; i < 2; i++) {
@@ -28,7 +32,7 @@ public class Tictactoe {
         }
     }
 
-    public static boolean isEnd(char[][] map) {
+    public static boolean isGameOver(char[][] map) {
 
         count++;
         if (count > 9) {
@@ -45,8 +49,7 @@ public class Tictactoe {
                     System.out.println("[Player2] Win !!");
                     return true;
                 }
-            } 
-            else if ((map[0][i] == map[1][i] && map[1][i] == map[2][i]) && map[0][i] != ' ') {
+            } else if ((map[0][i] == map[1][i] && map[1][i] == map[2][i]) && map[0][i] != ' ') {
                 if (map[0][i] == 'X') {
                     System.out.println("[Player1] Win !!");
                     return true;
@@ -57,7 +60,8 @@ public class Tictactoe {
             }
         }
 
-        if ((map[0][0] == map[1][1] && map[1][1] == map[2][2]) && map[0][0] != ' ') {
+        if ((map[0][0] == map[1][1] && map[1][1] == map[2][2] && map[0][0] != ' ')
+            || (map[0][2] == map[1][1] && map[1][1] == map[2][0] && map[0][2] != ' ')){
             if (map[0][0] == 'X') {
                 System.out.println("[Player1] Win !!");
                 return true;
@@ -71,8 +75,6 @@ public class Tictactoe {
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[i].length; j++) {
                 map[i][j] = ' ';
@@ -83,7 +85,7 @@ public class Tictactoe {
         boolean isPlayer1 = true;
         while (true) {
             printMap();
-            if (isEnd(map)) {
+            if (isGameOver(map)) {
                 break;
             }
 
@@ -97,7 +99,7 @@ public class Tictactoe {
             }
             fillMap(x, y, isPlayer1);
             printMap();
-            if (isEnd(map)) {
+            if (isGameOver(map)) {
                 break;
             }
 
