@@ -30,13 +30,19 @@ public class BankAccount {
         return this.balance;
     }
 
-    //
-    // add deposit method here.
-    //
-
-    //
-    // add withDraw method here.
-    //
+    public BigDecimal deposit(BigDecimal amount) {
+        this.balance = this.balance.add(amount);
+        return this.balance;
+    }
+    
+    public boolean withDraw(BigDecimal amount) {
+        if (amount.compareTo(this.balance) == 1 || amount.compareTo(this.balance) == 0) {
+            return false;
+        } else {
+            balance = balance.subtract(amount);
+            return true;
+        }
+    }
 }
 
 class CreateAccount {
@@ -47,18 +53,34 @@ class CreateAccount {
         return newAccount;
     }
 
-    //
-    // add testDeposit method here.
-    //
+    public static void TestDeposit(BankAccount account) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter amount to deposit: ");
+        BigDecimal amount = new BigDecimal(scanner.next());
+        account.deposit(amount);
+    }
 
-    //
-    // add testWithdraw method here.
-    //
-
+    public static void TestWithDraw(BankAccount account) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter amount to withdraw: ");
+        BigDecimal amount = new BigDecimal(scanner.next());
+        if (!account.withDraw(amount)) {
+            System.out.println("Insufficient funds!");
+        }
+    }
     public static void main(String[] args) {
         BankAccount bankAccount = CreateAccount.createNewBankAccount("Vesper Lind", new BigDecimal("0.0"));
         printBankAccount(bankAccount);
+        TestDeposit(bankAccount);
+        printBankAccount(bankAccount);
+        TestWithDraw(bankAccount);
+        printBankAccount(bankAccount);
+
         BankAccount bankAccount2 = CreateAccount.createNewBankAccount("Celine ", new BigDecimal("0.0"));
+        printBankAccount(bankAccount2);
+        TestDeposit(bankAccount2);
+        printBankAccount(bankAccount2);
+        TestWithDraw(bankAccount2);
         printBankAccount(bankAccount2);
     }
 
