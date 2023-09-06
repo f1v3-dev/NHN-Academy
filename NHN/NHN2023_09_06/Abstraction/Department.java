@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Department<E> implements Iterable<E> {
+public class Department<E extends Person> implements Iterable<E> {
 
     private int departmentNo;
     private String departmentName;
@@ -28,7 +28,7 @@ public class Department<E> implements Iterable<E> {
         Collections.sort(this.list);
     }
 
-    public void sort(Comparator<Student> compare) {
+    public void sort(Comparator<E> compare) {
         Collections.sort(this.list, compare);
     }
 

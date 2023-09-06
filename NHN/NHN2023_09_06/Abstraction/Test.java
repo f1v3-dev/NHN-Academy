@@ -1,6 +1,4 @@
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 
 public class Test {
 
@@ -11,42 +9,44 @@ public class Test {
         // Date date = new Date();
         // System.out.println(date);
 
-        Department<Student> department = new Department<>(1, "Computer Engineering");
+        Department<Person> department = new Department<>(1, "Computer Engineering");
         department.add(new Student(1, "Seungjo", 25));
-        department.add(new Student(4, "Celine", 24));
-        department.add(new Student(5, "Rogers", 22));
         department.add(new Student(2, "James", 21));
         department.add(new Student(3, "Jason", 19));
+        department.add(new Student(4, "Celine", 24));
+        department.add(new Student(5, "Rogers", 22));
+
+        department.add(new Professor(1, "Jeniffer", 48));
+        department.add(new Professor(2, "Heisenberg", 48));
+        department.add(new Professor(3, "Hooft", 48));
 
         printStudents(department);
 
-        // Collections.sort(department.getList());
-        // 1. Comparator의 subType class
-        // 2. 익명 클래스
-        // 3. 람다식
-        // 4. Method 참조
 
-        Collections.sort(department.getList(), new AgeOrder());
+        /*
+         * Person의 하위 타입 : Student, Professor
+         * Comparable이 동작하도록 구현 -> 람다식을 사용하였습니다.
+         */
 
-        // Collections.sort(department.getList(), new AgeOrder<Student>() {
+        // department.sort();
+
+        // department.sort(new Comparator<Person>() {
         //     @Override
-        //     public int compare(Student s1, Student s2) {
-        //         return s1.getAge() - s2.getAge();
+        //     public int compare(Person p1, Person p2) {
+        //         return p1.getAge() - p2.getAge();
         //     }
+
         // });
-        
-        // Collections.sort(department.getList(), (s1, s2) -> s1.getAge() - s2.getAge());
 
-        // Collections.sort(department.getList(), Comparator.comparingInt(Student::getAge));
-
+        department.sort((p1, p2) -> p1.getAge() - p2.getAge());
         System.out.println();
         printStudents(department);
 
     }
 
-    public static void printStudents(Department<Student> department) {
-        for (Student s : department) {
-            System.out.println(s);
+    public static void printStudents(Department<Person> department) {
+        for (Person m : department) {
+            System.out.println(m);
         }
     }
 }
