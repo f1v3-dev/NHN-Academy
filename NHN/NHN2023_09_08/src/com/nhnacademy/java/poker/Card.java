@@ -2,11 +2,11 @@ package com.nhnacademy.java.poker;
 
 public class Card {
 
-    private Suit pattern;
+    private Suit suit;
     private CardNumber number;
 
-    public Card(Suit pattern, CardNumber number) {
-        this.pattern = pattern;
+    public Card(Suit suit, CardNumber number) {
+        this.suit = suit;
         this.number = number;
     }
 
@@ -14,13 +14,13 @@ public class Card {
         return number;
     }
 
-    public Suit getPattern() {
-        return pattern;
+    public Suit getSuit() {
+        return suit;
     }
 
     @Override
     public String toString() {
-        return "[" + pattern + "] " + number;
+        return "[" + suit + "] " + number;
     }
 
     public int numberCompareTo(Card c) {
@@ -28,6 +28,6 @@ public class Card {
     }
 
     public int patternCompareTo(Card c) {
-        return this.getPattern().compareTo(c.getPattern());
+        return this.getSuit().compareTo(c.getSuit());
     }
 }

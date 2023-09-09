@@ -3,14 +3,14 @@ package com.nhnacademy.java.poker;
 public class Card {
 
     private Suit pattern;
-    private CardNumber number;
+    private Rank number;
 
-    public Card(Suit pattern, CardNumber number) {
+    public Card(Suit pattern, Rank number) {
         this.pattern = pattern;
         this.number = number;
     }
 
-    public CardNumber getNumber() {
+    public Rank getNumber() {
         return number;
     }
 
@@ -22,7 +22,5 @@ public class Card {
     public String toString() {
         return "[" + pattern + "] " + number;
     }
-
-
     
 }

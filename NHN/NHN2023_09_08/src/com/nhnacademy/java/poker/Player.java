@@ -1,11 +1,12 @@
 package com.nhnacademy.java.poker;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Player {
 
-    private String userName;
+    private String playerName;
 
     private List<Card> hand;
 
@@ -13,8 +14,8 @@ public class Player {
 
     private List<Card> pairCard;
 
-    public Player(String name) {
-        this.userName = name;
+    public Player(String playerName) {
+        this.playerName = playerName;
         hand = new ArrayList<>(5);
     }
 
@@ -23,7 +24,13 @@ public class Player {
     }
 
     public void sortHand() {
-        hand.sort((c1, c2) -> c1.getNumber().compareTo(c2.getNumber()));
+        hand.sort(new Comparator<Card>() {
+            @Override
+            public int compare(Card c1, Card c2) {
+                return c1.getNumber().compareTo(c2.getNumber());
+            }
+        });
+//        hand.sort((c1, c2) -> c1.getNumber().compareTo(c2.getNumber()));
     }
 
     public void findRank() {
@@ -40,8 +47,12 @@ public class Player {
             setRank(Rank.PAIR);
         } else if (pairCount == 2) {
             setRank(Rank.TWO_PAIR);
-        } else if (pairCount >= 3) {
+        } else if (pairCount == 3) {
             setRank(Rank.TRIPLE);
+        } else if (pairCount == 4) {
+            setRank(Rank.FOUR_CARD);
+        } else {
+            throw new IllegalArgumentException("Invalid Rank!!!!!");
         }
     }
 
@@ -67,8 +78,8 @@ public class Player {
         return this.rank;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getPlayerName() {
+        return playerName;
     }
 
     public List<Card> getPairCard() {
@@ -92,7 +103,7 @@ public class Player {
     public int comparePattern(Player player) {
 
         if (pairCard.isEmpty()) {
-            return this.hand.get(hand.size() - 1).getPattern().compareTo(player.hand.get(hand.size() - 1).getPattern());
+            return this.hand.get(hand.size() - 1).getSuit().compareTo(player.hand.get(hand.size() - 1).getSuit());
         }
         return this.pairCard.get(pairCard.size() - 1).patternCompareTo(player.pairCard.get(pairCard.size() - 1));
 
@@ -100,7 +111,7 @@ public class Player {
 
     @Override
     public String toString() {
-        String message = userName + " : ";
+        String message = playerName + " : ";
         for (Card card : hand) {
             message += card.toString();
             message += " ";

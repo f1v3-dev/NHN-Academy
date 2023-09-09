@@ -12,25 +12,25 @@ public class Table {
 
     public static Player findWinner() {
 
-        // TODO: 각 플레이어들의 패를 정렬한다.
+        // 각 플레이어들의 패를 정렬한다.
         sortPlayersHands();
 
-        // TODO: 각 플레이어들의 패에서 RANK에 어디에 속하는지 찾는 메서드를 호출
+        // 각 플레이어들의 패에서 RANK에 어디에 속하는지 찾는 메서드를 호출
         for (Player player : playerList) {
             player.findRank();
         }
 
-        // TODO: 가장 높은 RANK를 가진 플레이어가 승리
+        // 가장 높은 RANK를 가진 플레이어가 승리
         Player winnder = playerList.get(0);
         for (int i = 1; i < playerList.size(); i++) {
             int result = winnder.getRank().compareTo(playerList.get(i).getRank());
             if (result == 0) {
-                // TODO: RANK가 같을 경우에는 숫자를 비교해서 승자를 찾는다.
+                // RANK가 같을 경우에는 숫자를 비교해서 승자를 찾는다.
                 int compareNumber = winnder.compareNumber(playerList.get(i));
                 if (compareNumber < 0) {
                     winnder = playerList.get(i);
                 } else if (compareNumber == 0) {
-                    // TODO: RANK와 숫자가 같을 경우에는 무늬를 비교한다.
+                    // RANK와 숫자가 같을 경우에는 무늬를 비교한다.
                     int comparePattern = winnder.comparePattern(playerList.get(i));
                     if (comparePattern < 0) {
                         winnder = playerList.get(i);
@@ -94,7 +94,7 @@ public class Table {
         for (Player player : playerList) {
             System.out.println(player + " [" + player.getRank() + "]");
         }
-        System.out.println("Winner is \"" + winner.getUserName() + "\"!!! [" + winner.getRank() + "]");
+        System.out.println("Winner is \"" + winner.getPlayerName() + "\"!!! [" + winner.getRank() + "]");
 
     }
 

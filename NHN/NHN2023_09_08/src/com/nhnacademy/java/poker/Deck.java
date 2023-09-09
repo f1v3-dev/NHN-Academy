@@ -37,11 +37,9 @@ public class Deck {
     }
 
     public Card draw() {
-
         if (deck.isEmpty()) {
             throw new IllegalArgumentException("Deck is Empty!!!");
         }
-
         return deck.remove(0);
     }
 }

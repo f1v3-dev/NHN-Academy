@@ -1,6 +1,6 @@
 package com.nhnacademy.java.poker;
 
-public enum CardNumber {
+public enum Rank {
 
     ACE(1),
     TWO(2),
@@ -18,13 +18,10 @@ public enum CardNumber {
     
     private final int number;
 
-    CardNumber(int number) {
+    Rank(int number) {
         this.number = number;
     }
 
-    public int size() {
-        return this.
-    }
 
     public String toString() {
         return String.valueOf(number);
