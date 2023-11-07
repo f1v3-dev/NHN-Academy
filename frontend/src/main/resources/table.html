@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "UTF-8">
+	<title>Table</title>
+	<style>
+		*{
+			font-size:20pt;
+		}
+		table,th,td {
+			border: 1px double black;
+			width: 800px;
+		}
+
+		.border-red{
+			border: 1px double red;
+			color:red;
+		}
+		.border-blue{
+			border:1px double blue;
+			color:blue;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<caption>전 세계 박스 오피스</caption>
+		<thead>
+			<tr>
+				<th>제목</th>
+				<th>연도</th>
+				<th>감독</th>
+			</tr>
+
+		</thead>
+		<tbody>
+			<tr>
+				<td>아바타</td>
+				<td>2009</td>
+				<td rowspan="2" class="border-blue">제임스 카메론</td>
+			</tr>
+			<tr>
+				<td>타이타닉</td>
+				<td>2002</td>
+			</tr>
+			<tr>
+				<td>어벤저스: 엔드게임</td>
+				<td>2019</td>
+				<td>루소 형제</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="3" class="border-red">www.boxoffice.com</td>
+			</tr>
+		</tfoot>
+	</table>
+
+</body>
+</html>
