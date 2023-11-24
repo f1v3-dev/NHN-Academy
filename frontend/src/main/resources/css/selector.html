@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Selector</title>
+	<style>
+		p {
+			color: red;
+		}
+
+		#hello {
+			color: blue;
+		}
+
+		.hello {
+			color: green;
+		}
+
+		[type="button"] {
+			color: purple;
+		}
+
+		header > h1 {
+			color: red;
+		}
+
+		header > h1, header > h2 {
+			color: red;
+		}
+
+		h1 ~ p {
+			color: blue;
+		}
+
+		header > p:hover {
+			color: green;
+		}
+
+		div::before{
+			content: "마블's";
+			color: red;
+			margin-right:10px;
+		}
+
+		div::after {
+			content: "시리즈";
+			color: blue;
+			margin-left: 10px;
+		}
+	</style>
+</head>
+<body>
+<p>안녕하세요</p>
+<p id="hello">안녕하세요</p>
+<p class="hello">안녕하세요</p>
+<input type="button" value="안녕하세요">
+
+<header>
+	<h1>조 루소</h1>
+	<h2>안소니 루소</h2>
+	<ul>
+		<li>
+			<h1>안소니 루소 1세</h1>
+		</li>
+		<li>
+			<h1>안소니 루소 2세</h1>
+		</li>
+		<li>
+			<h1>안소니 루소 3세</h1>
+		</li>
+		<li>
+			<h1>안소니 루소 4세</h1>
+		</li>
+	</ul>
+</header>
+
+
+<h1>h1</h1>
+<p>첫 번째 자식 p</p>
+<h2>h2</h2>
+<p>두 번째 자식 p</p>
+
+<header>
+	<p>Avengers</p>
+	<div>
+		<p>End game</p>
+	</div>
+</header>
+
+<div>캡틴 아메리카</div>
+</body>
+</html>

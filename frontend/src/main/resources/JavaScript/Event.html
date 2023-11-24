@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>주요 이벤트</title>
+</head>
+<body>
+<script src="Event.js"></script>
+
+<script>
+	window.addEventListener("load", function(event) {
+		alert("hello!");
+	});
+</script>
+
+<button>클릭</button>
+<script>
+	const button = document.querySelector("button");
+
+	button.addEventListener("click", (event) => {
+		button.textContent = `클릭 횟수: ${Event.detail}`;
+	});
+</script>
+
+<form id = "form">
+	<label>field: <input type="text" /></label>
+	<br /><br />
+	<button type="submit">Submit form</button>
+</form>
+<p id = "log"></p>
+<script>
+	function logSubmit(event) {
+		log.textContent = `Form Submitted! Time stamp: ${Event.timeStamp}`;
+		Event.preventDefault();
+	}
+
+	const form = document.getElementById("form");
+	const log = document.getElementById("log");
+	form.addEventListener("submit", logSubmit);
+</script>
+</body>
+</html>

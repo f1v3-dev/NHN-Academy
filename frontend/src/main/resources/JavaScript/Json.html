@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JSON</title>
+</head>
+<body>
+<script>
+	let jsonStr = `[
+	{
+		"name": "Molecule Man",
+			"age": 29,
+			"secretIdentity": "Dan Jukes",
+			"powers": [
+		"Radiation resistance",
+		"Turning tiny",
+		"Radiation blast"
+	]
+	},
+	{
+		"name": "Madame Uppercut",
+			"age": 39,
+			"secretIdentity": "Jane Wilson",
+			"powers": [
+		"Million tonne punch",
+		"Damage resistance",
+		"Superhuman reflexes"
+	]
+	}
+	]`;
+
+	let jsonObj = JSON.parse(jsonStr);
+	console.log(typeof jsonObj);
+
+	let tempStr = JSON.stringify(jsonObj);
+	console.log(typeof tempStr);
+</script>
+</body>
+</html>
