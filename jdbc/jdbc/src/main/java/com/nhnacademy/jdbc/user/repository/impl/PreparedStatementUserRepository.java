@@ -14,7 +14,6 @@ import lombok.extern.slf4j.Slf4j;
 public class PreparedStatementUserRepository implements UserRepository {
     @Override
     public Optional<User> findByUserIdAndUserPassword(String userId, String userPassword) {
-        //todo#11 -PreparedStatement- 아이디 , 비밀번호가 일치하는 회원조회
         String sql = "SELECT * FROM jdbc_users WHERE user_id=? AND user_password=?";
 
         try (Connection connection = DbUtils.getConnection();
@@ -40,7 +39,6 @@ public class PreparedStatementUserRepository implements UserRepository {
 
     @Override
     public Optional<User> findById(String userId) {
-        //todo#12-PreparedStatement-회원조회
 
         String sql = "SELECT * FROM jdbc_users WHERE user_id=?";
 
@@ -68,7 +66,6 @@ public class PreparedStatementUserRepository implements UserRepository {
 
     @Override
     public int save(User user) {
-        //todo#13-PreparedStatement-회원저장
 
         String sql = "INSERT INTO jdbc_users VALUES(?, ?, ?)";
 
@@ -88,7 +85,6 @@ public class PreparedStatementUserRepository implements UserRepository {
 
     @Override
     public int updateUserPasswordByUserId(String userId, String userPassword) {
-        //todo#14-PreparedStatement-회원정보 수정
 
         String sql = "UPDATE jdbc_users SET user_password=? WHERE user_id=?";
 
@@ -107,7 +103,6 @@ public class PreparedStatementUserRepository implements UserRepository {
 
     @Override
     public int deleteByUserId(String userId) {
-        //todo#15-PreparedStatement-회원삭제
 
 
         String sql = "DELETE FROM jdbc_users WHERE user_id=?";

@@ -15,7 +15,6 @@ public class StatementStudentRepository implements StudentRepository {
 
     @Override
     public int save(Student student) {
-        //todo#1 insert student
 
         String sql = String.format("INSERT INTO jdbc_students(id, name, gender, age) VALUES('%s', '%s', '%s', %d)",
                 student.getId(), student.getName(), student.getGender(), student.getAge());
@@ -34,7 +33,6 @@ public class StatementStudentRepository implements StudentRepository {
 
     @Override
     public Optional<Student> findById(String id) {
-        //todo#2 student 조회
 
         String sql = String.format("SELECT * FROM jdbc_students WHERE id = '%s'", id);
 
@@ -59,9 +57,6 @@ public class StatementStudentRepository implements StudentRepository {
 
     @Override
     public int update(Student student) {
-        //todo#3 student 수정, name <- 수정합니다.
-
-
         String sql = String.format("UPDATE jdbc_students SET name = '%s', gender = '%s', age = %d WHERE id = '%s'",
                 student.getName(), student.getGender(), student.getAge(), student.getId());
 
@@ -77,7 +72,6 @@ public class StatementStudentRepository implements StudentRepository {
 
     @Override
     public int deleteById(String id) {
-        //todo#4 student 삭제
 
         String sql = String.format("DELETE FROM jdbc_students WHERE id = '%s'", id);
 

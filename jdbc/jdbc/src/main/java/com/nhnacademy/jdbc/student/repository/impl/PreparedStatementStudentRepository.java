@@ -15,7 +15,6 @@ public class PreparedStatementStudentRepository implements StudentRepository {
 
     @Override
     public int save(Student student) {
-        //todo#1 학생 등록
 
         String sql = "INSERT INTO jdbc_students(id, name, gender, age) VALUES(?, ?, ?, ?)";
 
@@ -38,7 +37,6 @@ public class PreparedStatementStudentRepository implements StudentRepository {
 
     @Override
     public Optional<Student> findById(String id) {
-        //todo#2 학생 조회
 
         String sql = "SELECT * FROM jdbc_students WHERE id = ?";
 
@@ -71,7 +69,6 @@ public class PreparedStatementStudentRepository implements StudentRepository {
 
     @Override
     public int update(Student student) {
-        //todo#3 학생 수정 , name 수정
 
         String sql = "UPDATE jdbc_students SET name=?, gender=?, age=? WHERE id=?";
 
@@ -93,7 +90,6 @@ public class PreparedStatementStudentRepository implements StudentRepository {
 
     @Override
     public int deleteById(String id) {
-        //todo#4 학생 삭제
 
         String sql = "DELETE FROM jdbc_students WHERE id=?";
 
