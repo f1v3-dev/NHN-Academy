@@ -23,7 +23,7 @@ public class JdbcExceptionTest {
     @Test
     @DisplayName("sqlExceptionTest")
     void insert_throw_sqlException() {
-        String sql = "insert into jdbc_students (id, name, gender, age) values(100, '승조', 'M', '25')";
+        String sql = "insert into jdbc_students (student_id, name, gender, age) values(100, '승조', 'M', '25')";
 
         SQLException sqlException = Assertions.assertThrows(SQLException.class, () -> {
             Statement statement = connection.createStatement();
