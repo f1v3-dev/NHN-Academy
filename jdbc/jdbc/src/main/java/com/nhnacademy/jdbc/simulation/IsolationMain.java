@@ -18,26 +18,21 @@ public class IsolationMain {
 
         Thread.sleep(1000);
 
-        //todo#2 A->B에게 만(원) 송금
         Thread threadA = transferThread();
         threadA.setName("송금-Thread");
 
-        //todo#3 A가 10만(원) 인출 시도 -> A는 송금 후 잔고는 9만원 -> 송금실패-예외발생
         Thread threadB = withdrawThread();
         threadB.setName("인출-Thread");
 
         threadA.start();
-        //todo#6 - Thread.sleep(1000)  주석을 걸면 어떻게 될까요?
         Thread.sleep(1000);
         threadB.start();
 
-        //todo#4 threadA, threadB 모두 실행될 때까지 Main Thread 대기.
         while (!(threadA.getState().equals(Thread.State.TERMINATED) &&
                 threadB.getState().equals(Thread.State.TERMINATED))) {
             Thread.yield();
         }
 
-        //todo#5 조회
         Connection connection = DbUtils.getDataSource().getConnection();
         Account accountA = bankService.getAccount(connection, 10000);
         Account accountB = bankService.getAccount(connection, 20000);
@@ -53,7 +48,6 @@ public class IsolationMain {
         Connection connection = DbUtils.getDataSource().getConnection();
         connection.setAutoCommit(false);
 
-        //todo#1 account (A,B) 잔고 : 10_0000 생성합니다.
         Account accountA = new Account(1L, "nhn아카데미-1", 100_000L);
         Account accountB = new Account(2L, "nhn아카데미-2", 100_000L);
 

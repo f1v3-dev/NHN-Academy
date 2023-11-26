@@ -23,17 +23,14 @@ public class RepeatableReadEx2Main {
         init();
         Thread.sleep(1000);
 
-        // TODO #1 connection1 - isolation level : REPEATABLE_READ
         Connection connection1 = DbUtils.getDataSource().getConnection();
         connection1.setTransactionIsolation(Connection.TRANSACTION_REPEATABLE_READ);
         connection1.setAutoCommit(false);
 
-        // TODO #2 connection2 - isolation level : REPEATABLE_READ
         Connection connection2 = DbUtils.getDataSource().getConnection();
         connection2.setTransactionIsolation(Connection.TRANSACTION_REPEATABLE_READ);
         connection2.setAutoCommit(false);
 
-        // TODO #3 동일한 시점에 10000 계좌 조회 -> 동일한 데이터 출력
         long accountNumber = 10000L;
         Account accountA = bankService.getAccount(connection1, accountNumber);
         Account accountB = bankService.getAccount(connection2, accountNumber);
@@ -43,7 +40,6 @@ public class RepeatableReadEx2Main {
         log.debug("accountB = {}", accountB);
         log.debug("==========================");
 
-        // TODO #4 connection1 - 새로운 계좌 30000을 생성
         long newAccountNumber = 30000L;
         Account newAccount = new Account(newAccountNumber, "nhn아카데미-30000", 100_000L);
 
@@ -51,10 +47,8 @@ public class RepeatableReadEx2Main {
         connection1.commit();
 
 
-        // TODO #5 accountA 조회
         accountA = bankService.getAccount(connection1, newAccountNumber);
 
-        // TODO #6 accountB 조회 -> 서로 다른 트랜잭션으로 조회되지 않음.
         try {
             accountB = bankService.getAccount(connection2, newAccountNumber);
         } catch (Exception e) {
@@ -62,7 +56,6 @@ public class RepeatableReadEx2Main {
             log.debug("accountB = {}", e.getMessage());
         }
 
-        // TODO #7 accountB는 null
         log.debug("================================");
         log.debug("accountA:{}", accountA);
         log.debug("accountB is null :{}", Objects.isNull(accountB));
@@ -72,11 +65,9 @@ public class RepeatableReadEx2Main {
         log.debug("accountB : 5만원 입금");
         accountRepository.deposit(connection2, newAccountNumber, 50_000L);
 
-        // TODO #8 accountB 조회
         accountB = bankService.getAccount(connection2, newAccountNumber);
 
 
-        // TODO #9 connection1에서 insert된 계좌는 확인할 수 없었지만, update를 통해서 새로운 스냅샷 생성
         // 즉 update에 대해서는 dirty read 발생
         log.debug("================================");
         log.debug("accountB {}", accountB);

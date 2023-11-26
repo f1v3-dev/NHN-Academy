@@ -1,7 +1,6 @@
 package com.nhnacademy.jdbc.student.repository.impl;
 
 import com.nhnacademy.jdbc.student.domain.Student;
-import com.nhnacademy.jdbc.student.repository.StudentRepository;
 import com.nhnacademy.jdbc.student.repository.StudentRepositoryV2;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,7 +14,6 @@ public class StudentRepositoryImpl implements StudentRepositoryV2 {
 
     @Override
     public int save(Connection connection, Student student) {
-        //todo#2 학생등록
 
         String sql = "INSERT INTO jdbc_students(id, name, gender, age) VALUES(?, ?, ?, ?)";
 
@@ -38,7 +36,6 @@ public class StudentRepositoryImpl implements StudentRepositoryV2 {
 
     @Override
     public Optional<Student> findById(Connection connection, String id) {
-        //todo#3 학생조회
         String sql = "SELECT * FROM jdbc_students WHERE id=?";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -66,7 +63,6 @@ public class StudentRepositoryImpl implements StudentRepositoryV2 {
 
     @Override
     public int update(Connection connection, Student student) {
-        //todo#4 학생수정
         String sql = "UPDATE jdbc_students SET name=?, gender=?, age=? WHERE id=?";
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -86,7 +82,6 @@ public class StudentRepositoryImpl implements StudentRepositoryV2 {
 
     @Override
     public int deleteById(Connection connection, String id) {
-        //todo#5 학생삭제
 
         String sql = "DELETE FROM jdbc_students WHERE id=?";
 
@@ -101,5 +96,20 @@ public class StudentRepositoryImpl implements StudentRepositoryV2 {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public int deleteAll(Connection connection) {
+        String sql = "DELETE FROM jdbc_students";
+        try (
+                PreparedStatement statement = connection.prepareStatement(sql);
+        ) {
+            int result = statement.executeUpdate();
+            log.debug("result = {}", result);
+            return result;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
 }

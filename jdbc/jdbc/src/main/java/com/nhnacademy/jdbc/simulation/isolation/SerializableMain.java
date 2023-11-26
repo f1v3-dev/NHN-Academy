@@ -22,19 +22,15 @@ public class SerializableMain {
         init();
         Thread.sleep(1000);
 
-        // TODO #1 : threadA <- Account 조회를 하는 thread, SERIALIZABLE, 10_000 계좌 조회 후 10초 후 커밋
         Thread threadA = new AccountThread(10_000L, 10000);
 
-        // TODO #2 : threadB <- 10_000 계좌에 5만원 입금하는 thread, SERIALIZABLE, 1초 대기 후 commit
         Thread threadB = new AccountDepositThread(10_000L, 1000);
 
         threadA.setName("Thread-A-조회");
         threadA.start();
 
-        // TODO #3 threadA가 먼저 동작할 수 있도록 1초 Sleep
         Thread.sleep(1000);
 
-        // TODO #4 : threadB 시작
         threadB.setName("Thread-B-입금");
         threadB.start();
     }

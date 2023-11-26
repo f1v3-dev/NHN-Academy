@@ -19,7 +19,6 @@ public class ReadUnCommittedMain {
         init();
         Thread.sleep(1000);
 
-        // TODO #1 : connection1, connection2 isolation level = READ_UNCOMMITTED로 설정
         Connection connection1 = DbUtils.getDataSource().getConnection();
         connection1.setTransactionIsolation(Connection.TRANSACTION_READ_UNCOMMITTED);
         connection1.setAutoCommit(false);
@@ -28,7 +27,6 @@ public class ReadUnCommittedMain {
         connection2.setTransactionIsolation(Connection.TRANSACTION_READ_UNCOMMITTED);
         connection2.setAutoCommit(false);
 
-        // TODO #2 : 10000인 계좌 connection1, connection2 각각 조회
         long accountNumber = 10000L;
         Account accountA = bankService.getAccount(connection1, accountNumber);
         Account accountB = bankService.getAccount(connection2, accountNumber);
@@ -38,10 +36,8 @@ public class ReadUnCommittedMain {
         log.debug("accountB = {}", accountB);
         log.debug("=====================================");
 
-        // TODO #3 : accountA 5만원 입금, commit X
         bankService.depositAccount(connection1, accountNumber, 50_000);
 
-        // TODO #4 : dirty read 발생, connection1 commit 되지 않는 상태에서 connection2에서 아직 commit되지 않는 데이터를 읽을 수 있음
 
         accountA = bankService.getAccount(connection1, accountNumber);
         accountB = bankService.getAccount(connection2, accountNumber);
