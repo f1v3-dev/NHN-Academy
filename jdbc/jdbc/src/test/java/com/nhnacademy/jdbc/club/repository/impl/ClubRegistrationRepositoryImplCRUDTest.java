@@ -5,8 +5,8 @@ import com.nhnacademy.jdbc.club.domain.ClubStudent;
 import com.nhnacademy.jdbc.club.repository.ClubRegistrationRepository;
 import com.nhnacademy.jdbc.club.repository.ClubRepository;
 import com.nhnacademy.jdbc.student.domain.Student;
-import com.nhnacademy.jdbc.student.repository.StudentRepositoryV2;
-import com.nhnacademy.jdbc.student.repository.impl.StudentRepositoryImpl;
+import com.nhnacademy.jdbc.student.repository.StudentRepositoryV3;
+import com.nhnacademy.jdbc.student.repository.impl.StudentRepositoryImplV3;
 import com.nhnacademy.jdbc.util.DbUtils;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -22,7 +22,7 @@ import org.junit.jupiter.api.Test;
 class ClubRegistrationRepositoryImplCRUDTest {
 
 
-    StudentRepositoryV2 studentRepository = new StudentRepositoryImpl();
+    StudentRepositoryV3 studentRepository = new StudentRepositoryImplV3();
     ClubRegistrationRepository clubRegistrationRepository = new ClubRegistrationRepositoryImpl();
     ClubRepository clubRepository = new ClubRepositoryImpl();
 

@@ -4,7 +4,7 @@ import com.nhnacademy.jdbc.student.domain.Student;
 import java.sql.Connection;
 import java.util.Optional;
 
-public interface StudentRepositoryV2 {
+public interface StudentRepositoryV3 {
     int save(Connection connection, Student student);
 
     Optional<Student> findById(Connection connection, String id);
@@ -12,4 +12,6 @@ public interface StudentRepositoryV2 {
     int update(Connection connection, Student student);
 
     int deleteById(Connection connection, String id);
+
+    int deleteAll(Connection connection);
 }

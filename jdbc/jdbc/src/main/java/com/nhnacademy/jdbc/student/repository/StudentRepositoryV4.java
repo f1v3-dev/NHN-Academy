@@ -1,10 +1,11 @@
 package com.nhnacademy.jdbc.student.repository;
 
+import com.nhnacademy.jdbc.common.Page;
 import com.nhnacademy.jdbc.student.domain.Student;
 import java.sql.Connection;
 import java.util.Optional;
 
-public interface StudentRepositoryV2 {
+public interface StudentRepositoryV4 {
     int save(Connection connection, Student student);
 
     Optional<Student> findById(Connection connection, String id);
@@ -12,4 +13,10 @@ public interface StudentRepositoryV2 {
     int update(Connection connection, Student student);
 
     int deleteById(Connection connection, String id);
+
+    int deleteAll(Connection connection);
+
+    long totalCount(Connection connection);
+
+    Page<Student> findAll(Connection connection, int page, int pageSize);
 }

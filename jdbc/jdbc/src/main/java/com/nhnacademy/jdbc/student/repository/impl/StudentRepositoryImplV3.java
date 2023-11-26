@@ -2,8 +2,8 @@ package com.nhnacademy.jdbc.student.repository.impl;
 
 import com.nhnacademy.jdbc.common.Page;
 import com.nhnacademy.jdbc.student.domain.Student;
-import com.nhnacademy.jdbc.student.repository.StudentRepository;
-import com.nhnacademy.jdbc.student.repository.StudentRepositoryV2;
+import com.nhnacademy.jdbc.student.repository.StudentRepositoryV3;
+import com.nhnacademy.jdbc.student.repository.StudentRepositoryV4;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +12,7 @@ import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class StudentRepositoryImpl implements StudentRepositoryV2 {
+public class StudentRepositoryImplV3 implements StudentRepositoryV3 {
 
     @Override
     public int save(Connection connection, Student student) {
@@ -93,6 +93,20 @@ public class StudentRepositoryImpl implements StudentRepositoryV2 {
 
             int result = statement.executeUpdate();
             log.debug("delete = {}", result);
+            return result;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public int deleteAll(Connection connection) {
+        String sql = "DELETE FROM jdbc_students";
+        try (
+                PreparedStatement statement = connection.prepareStatement(sql);
+        ) {
+            int result = statement.executeUpdate();
+            log.debug("result = {}", result);
             return result;
         } catch (SQLException e) {
             throw new RuntimeException(e);

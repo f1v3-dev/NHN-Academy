@@ -1,6 +1,5 @@
 package com.nhnacademy.jdbc.student.repository.impl;
 
-import com.nhnacademy.jdbc.common.Page;
 import com.nhnacademy.jdbc.student.domain.Student;
 import com.nhnacademy.jdbc.student.repository.StudentRepository;
 import com.nhnacademy.jdbc.student.repository.StudentRepositoryV2;
@@ -12,7 +11,7 @@ import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class StudentRepositoryImpl implements StudentRepositoryV2 {
+public class StudentRepositoryImplV2 implements StudentRepositoryV2 {
 
     @Override
     public int save(Connection connection, Student student) {
