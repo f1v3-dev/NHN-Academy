@@ -110,7 +110,6 @@ public class StudentRepositoryImplV4 implements StudentRepositoryV4 {
 
     @Override
     public long totalCount(Connection connection) {
-        //todo#4 totalCount 구현
 
         String sql = "SELECT count(*) FROM jdbc_students";
 
@@ -129,7 +128,6 @@ public class StudentRepositoryImplV4 implements StudentRepositoryV4 {
 
     @Override
     public Page<Student> findAll(Connection connection, int page, int pageSize) {
-        //todo#5 findAll 구현
 
         int offset = (page - 1) * pageSize;
         int limit = pageSize;
